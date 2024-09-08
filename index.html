@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title>Online-Menu</title>
+       <style> 
+        *,
+        *:after,
+        *:before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: "Teko"
+        }
+        ol, ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        p {
+            font-size: 30px;
+            padding: 15px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1150px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .header button {
+            width: 226px;
+            height: 50px;
+            border: 5px solid rgb(120 61 61);
+            margin-bottom: 5px;
+            background-color: antiquewhite;
+            cursor: pointer;
+        }
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .list li {
+            width: 25%;
+            border: 5px solid rgb(120 61 61);
+            background-color: antiquewhite;
+        }
+        .list li img {
+            width: auto;
+            height: 350px;
+            border-radius: 25%;
+        }
+        .list li h1 {
+        padding: 15px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <button class="all">All</button>
+                <button class="appetizer">Appetizer</button>
+                <button class="main">Main</button>
+                <button class="dessert">Dessert</button>
+                <button class="drink">Drink</button>
+            </div>
+            <ul class="list"></ul>
+        </div>
+        <script>
+            let data = [
+                    {
+                        name : "Frenchfries",
+                        image : "images/fries.jfif",
+                        price : "3.99",
+                        type : "appetizer"
+                    },
+                    {
+                        name : "salad",
+                        image : "images/salad.jpg",
+                        price : "4.99",
+                        type : "appetizer"
+                    },
+                    {
+                        name : "sandwich",
+                        image : "images/sandwich.jpg",
+                        price : "12.99",
+                        type : "main"
+                    },
+                    {
+                        name : "pizza",
+                        image : "images/pizza.jfif",
+                        price : "16.99",
+                        type : "main"
+                    },
+                    {
+                        name : "cake",
+                        image : "images/cake.jpg",
+                        price : "4.99",
+                        type : "dessert"
+                    },
+                    {
+                        name : "waffle",
+                        image : "images/waffle.jpg",
+                        price : "6.99",
+                        type : "dessert"
+                    },
+                    {
+                        name : "cocktail",
+                        image :"images/cocktail.jpg",
+                        price : "6.99",
+                        type : "drink"
+                    },
+                    {
+                        name : "milkshake",
+                        image : "images/milkshake.jpg",
+                        price : "10.99",
+                        type : "drink"
+                    }
+                ]
+            for (let i=0;i<data.length;i++) {
+                let li=document.createElement ("LI");
+                li.innerHTML= `<h1>${data[i].name}</h1><img src=${data[i].image}><p>${data[i].price}$</p>`;
+                document.querySelector(".list").appendChild(li);
+            }
+            const button = document.querySelector("main");
+            button.addEventListener ("click",function(){
+                let filtered = data.filter(function (item) {
+                return item.type == "main";
+            });
+            })
+        </script>
+    </body>
+</html>
